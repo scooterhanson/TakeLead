@@ -395,3 +395,6 @@ textarea { resize: vertical; font: inherit; color: inherit; }
 .help-page { max-width: 760px; }
 .help-page h1 { margin: 16px 0 4px; }
 .guest-header .help-btn { padding: 4px 10px; min-width: 34px; border-radius: 999px; }
+
+/* While the "Up next" card is up, keep the (paused) player loaded but out of sight. */
+.stage.showing-intro .player-frame { opacity: 0; }

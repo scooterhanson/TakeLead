@@ -85,7 +85,7 @@ export function Stage() {
   const currentError = error && error.entryId === current?.id ? error : null;
 
   return (
-    <div className={`stage ${cursorHidden ? 'no-cursor' : ''}`}>
+    <div className={`stage ${cursorHidden ? 'no-cursor' : ''} ${showIntro ? 'showing-intro' : ''}`}>
       {current ? (
         <SongPlayer
           key={current.id}
