@@ -1,0 +1,9 @@
+# Only needed if you set up the tunnel from the command line instead of the
+# Cloudflare dashboard (see DEPLOY.md, step 5). Save as ~/.cloudflared/config.yml
+tunnel: takelead
+credentials-file: /PATH/TO/.cloudflared/TUNNEL-ID.json
+
+ingress:
+  - hostname: karaoke.example.com
+    service: http://localhost:3000
+  - service: http_status:404

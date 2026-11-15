@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Keeps TakeLead running on a Mac, and starts it at login.
+  1. Replace /Users/YOU/takelead with the folder you unpacked TakeLead into (3 places).
+  2. Check the node path with `which node` (Homebrew on Apple silicon: /opt/homebrew/bin/node).
+  3. cp deploy/com.takelead.server.plist ~/Library/LaunchAgents/
+     launchctl load ~/Library/LaunchAgents/com.takelead.server.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.takelead.server</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/YOU/takelead</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/YOU/takelead/node_modules/tsx/dist/cli.mjs</string>
+    <string>server/index.ts</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>NODE_ENV</key>
+    <string>production</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/YOU/takelead/takelead.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/YOU/takelead/takelead.log</string>
+</dict>
+</plist>

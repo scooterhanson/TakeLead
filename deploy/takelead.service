@@ -1,0 +1,20 @@
+# systemd service for Linux (Ubuntu, Debian, Raspberry Pi OS).
+# Install:  sudo cp deploy/takelead.service /etc/systemd/system/
+#           sudo systemctl enable --now takelead
+# Edit User and the /opt/takelead paths if you installed elsewhere.
+
+[Unit]
+Description=TakeLead karaoke
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=takelead
+WorkingDirectory=/opt/takelead
+ExecStart=/usr/bin/node /opt/takelead/node_modules/tsx/dist/cli.mjs server/index.ts
+Environment=NODE_ENV=production
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
