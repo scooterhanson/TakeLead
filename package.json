@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "description": "Karaoke party app: hosts build a playlist, guests join by QR code and queue up, a Now Playing screen runs the show.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Scooter Hanson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scooterhanson/TakeLead.git"
+  },
   "scripts": {
     "dev": "concurrently -k -n server,web -c magenta,cyan \"tsx watch server/index.ts\" \"vite\"",
     "build": "tsc --noEmit && vite build",
